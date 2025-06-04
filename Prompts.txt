@@ -1,0 +1,15 @@
+Bien, vamos a comenzar con la distribución de los elementos del sitio
+
+Para las pantallas grandes o medianas (desktop o tabletas):
+- Header: Los logotipos del sitio ocupan todo el encabezado
+- Barra de menú: Barra con los item de menú de navegación centrados, al final de la barra el ícono para alternar modo oscuro
+- Main: Espacio donde iria el contenido respectivo de la página
+- Footer: Barra final con el texto HactivePro Copyrigth 2025
+
+Para las pantallas pequeñas (teléfonos):
+- Header: solo el texto HactivePro centrado, en el borde derecho, un div con los íconos de alternar dark mode y un menú hamburguesa para mostrar el menú con las opciones de navegación
+- Main:Espacio donde iria el contenido respectivo de la página
+- Footer: Barra final con el texto HactivePro Copyrigth 2025
+
+Te paso un par de imagenes con un wireframe preliminar para que veas el layout.
+Generame el código para esa distribución en el archivo layout-main.css. Los colores son solo para distinguir los elementos 

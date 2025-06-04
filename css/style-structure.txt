@@ -1,0 +1,19 @@
+## Archivo con la descripción de la estructura de los archivos de estilo css
+
+base.css: Este archivo se referencia en todas las páginas HTML y contiene únicamente las declaraciones @import para todos los archivos CSS comunes a todo el sitio. No debe contener ninguna regla CSS ni declaración de variables propias.
+
+colors.css: Reglas de colores, tramas, sombras y bordes. Incluye las declaraciones de variables CSS globales (:root) que sean correspondientes a los colores (ej. --primary-color: #...).
+
+layout-main.css: Reglas de layout generales (estructura de columnas, filas, márgenes, paddings globales, etc.) aplicables a la mayoría de las páginas del sitio. Incluye las declaraciones de variables CSS globales (:root) que sean correspondientes a las medidas de layout (ej. --spacing-unit: 16px;).
+
+header.css: Todas las reglas de estilo específicas para el encabezado del sitio (Header).
+
+typography.css: Reglas de fuentes (font-family, font-size, font-weight), efectos de texto (text-decoration, text-shadow) e interlineado (line-height). Incluye las declaraciones de variables CSS globales (:root) que sean correspondientes a la tipografía (ej. --font-primary: 'Arial', sans-serif;).
+
+other.css: Cualquier otra regla de uso general para todas las páginas del sitio que no encaje específicamente en colors, layout-main, header o typography. Por ejemplo, estilos para botones globales, formularios básicos, o un reset/normalize CSS.
+
+layout-home.css: Reglas de layout adicionales específicas para la página de inicio (home). Este archivo se incluye directamente en el HTML de la página de inicio, además de base.css.
+
+layout-blog.css: Reglas de layout adicionales específicas para las páginas de blog (individuales y listado). Este archivo se incluye directamente en el HTML de las páginas de blog, además de base.css.
+
+[nombre-pagina-especifica].css: Cualquier archivo CSS adicional necesario para una página específica que no sea la de inicio o blog, o si hay un artículo de blog que requiera estilos muy particulares. Este archivo se incluirá directamente en el HTML de esa página, además de base.css y el layout correspondiente (layout-blog.css si es un artículo).

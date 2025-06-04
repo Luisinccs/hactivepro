@@ -1,0 +1,269 @@
+/* 2025-06-04 */
+
+/* Región: Variables de Layout Globales */
+:root {
+    /* Medidas de espaciado */
+    --spacing-unit: 16px;
+    --header-height-desktop: 100px;
+    --navbar-height-desktop: 60px;
+    --footer-height: 50px;
+    --header-height-mobile: 60px;
+    --navbar-height-mobile: auto; /* La altura del menú móvil será dinámica */
+}
+/* Región: Layout General (Desktop y Tabletas) */
+html, body {
+    /* _margin: Asegura que no haya margen externo en el html o body */
+    margin: 0;
+    /* _padding: Asegura que no haya padding interno en el html o body */
+    padding: 0;
+    /* _box_sizing: Fundamental para que los paddings y borders no sumen al ancho/alto */
+    box-sizing: border-box;
+}
+/* Región: Layout General (Desktop y Tabletas) */
+body {
+    /* _display: Utiliza flexbox para organizar el sitio como una columna principal */
+    display: flex;
+    /* _flex_direction: Los elementos se apilan verticalmente */
+    flex-direction: column;
+    /* _min_height: Asegura que el body ocupe al menos el 100% de la altura de la ventana */
+    min-height: 100vh;
+    /* _margin: Elimina el margen por defecto del body */
+    margin: 0;
+}
+
+.site-container {
+    /* _display: Contenedor principal para header, main y footer */
+    display: flex;
+    /* _flex_direction: Los elementos se apilan verticalmente */
+    flex-direction: column;
+    /* _flex_grow: Permite que el contenedor crezca para ocupar el espacio disponible */
+    flex-grow: 1;
+}
+
+header {
+    /* _background_color: Color temporal para distinguir el header */
+    background-color: lightblue; /* Temporal para wireframe */
+    /* _height: Altura fija para el header en desktop/tablet */
+    height: var(--header-height-desktop);
+    /* _display: Usa flexbox para centrar el contenido (logo) */
+    display: flex;
+    /* _justify_content: Centra horizontalmente el contenido */
+    justify-content: center;
+    /* _align_items: Centra verticalmente el contenido */
+    align-items: center;
+    /* _padding: Espaciado interno */
+    padding: var(--spacing-unit);
+    /* _box_sizing: Incluye padding en el tamaño total */
+    box-sizing: border-box;
+}
+
+.header-logo-desktop {
+    /* _width: Ancho de los logotipos en desktop */
+    width: 100%;
+    /* _height: Altura adaptable */
+    height: auto;
+    /* _max_width: Máximo ancho para el logo si fuera una imagen */
+    max-width: 100%;
+    /* _text_align: Asegura que el texto (si es logo de texto) esté centrado */
+    text-align: center;
+}
+
+.header-mobile-title,
+.header-mobile-icons {
+    /* _display: Oculta estos elementos por defecto en desktop */
+    display: none;
+}
+
+nav.main-nav {
+    /* _background_color: Color temporal para distinguir la barra de menú */
+    background-color: aquamarine; /* Temporal para wireframe */
+    /* _height: Altura fija para la barra de menú */
+    height: var(--navbar-height-desktop);
+    /* _display: Usa flexbox para alinear los elementos */
+    display: flex;
+    /* _justify_content: Distribuye el espacio y centra el menú */
+    justify-content: center;
+    /* _align_items: Centra verticalmente el contenido */
+    align-items: center;
+    /* _padding: Espaciado interno */
+    padding: 0 var(--spacing-unit);
+    /* _box_sizing: Incluye padding en el tamaño total */
+    box-sizing: border-box;
+    /* _position: Asegura que el ícono de dark mode se posicione correctamente */
+    position: relative;
+}
+
+.main-nav ul {
+    /* _list_style: Elimina los puntos de la lista */
+    list-style: none;
+    /* _padding: Elimina el padding por defecto de la lista */
+    padding: 0;
+    /* _margin: Elimina el margen por defecto de la lista */
+    margin: 0;
+    /* _display: Usa flexbox para alinear los items del menú */
+    display: flex;
+    /* _justify_content: Centra los items del menú */
+    justify-content: center;
+    /* _gap: Espacio entre los items del menú */
+    gap: var(--spacing-unit);
+}
+
+.dark-mode-toggle-desktop {
+    /* _position: Posiciona el icono de dark mode al final de la barra */
+    position: absolute;
+    /* _right: Distancia desde el borde derecho */
+    right: var(--spacing-unit);
+    /* _cursor: Indica que es clickeable */
+    cursor: pointer;
+    /* _font_size: Tamaño del icono */
+    font-size: 1.5rem;
+    /* _background_color: Color temporal */
+    background-color: coral; /* Temporal para wireframe */
+    /* _width: Ancho del ícono */
+    width: 30px;
+    /* _height: Altura del ícono */
+    height: 30px;
+    /* _display: Centra el contenido del ícono */
+    display: flex;
+    /* _justify_content: Centra horizontalmente */
+    justify-content: center;
+    /* _align_items: Centra verticalmente */
+    align-items: center;
+    /* _border_radius: Hace el icono circular */
+    border-radius: 50%;
+}
+
+main {
+    /* _background_color: Color temporal para distinguir el main */
+    background-color: lightcoral; /* Temporal para wireframe */
+    /* _flex_grow: Permite que el main ocupe todo el espacio restante */
+    flex-grow: 1;
+    /* _padding: Espaciado interno general del contenido */
+    padding: var(--spacing-unit) * 2;
+}
+
+footer {
+    /* _background_color: Color temporal para distinguir el footer */
+    background-color: lightgray; /* Temporal para wireframe */
+    /* _height: Altura fija para el footer */
+    height: var(--footer-height);
+    /* _display: Usa flexbox para centrar el texto */
+    display: flex;
+    /* _justify_content: Centra horizontalmente */
+    justify-content: center;
+    /* _align_items: Centra verticalmente */
+    align-items: center;
+    /* _padding: Espaciado interno */
+    padding: var(--spacing-unit);
+    /* _box_sizing: Incluye padding en el tamaño total */
+    box-sizing: border-box;
+}
+
+/* Región: Layout para Teléfonos (Pantallas Pequeñas) */
+@media (max-width: 768px) { /* El breakpoint de 768px es común para tabletas pequeñas/teléfonos */
+    header {
+        /* _height: Altura reducida para el header en móvil */
+        height: var(--header-height-mobile);
+        /* _justify_content: Distribuye el espacio para el título y los iconos */
+        justify-content: space-between;
+        /* _padding: Ajusta el padding para móvil */
+        padding: 0 var(--spacing-unit);
+    }
+
+    .header-logo-desktop {
+        /* _display: Oculta el logo completo en móvil */
+        display: none;
+    }
+
+    .header-mobile-title {
+        /* _display: Muestra el título HactivePro centrado */
+        display: block;
+        /* _flex_grow: Permite que el título ocupe el espacio central */
+        flex-grow: 1;
+        /* _text_align: Centra el texto */
+        text-align: center;
+        /* _font_size: Ajusta el tamaño de fuente */
+        font-size: 1.8rem;
+        /* _color: Color temporal */
+        color: darkblue; /* Temporal para wireframe */
+    }
+
+    .header-mobile-icons {
+        /* _display: Muestra el contenedor de iconos */
+        display: flex;
+        /* _gap: Espacio entre los iconos */
+        gap: var(--spacing-unit) / 2;
+        /* _align_items: Alinea los iconos verticalmente */
+        align-items: center;
+    }
+
+    .dark-mode-toggle-desktop {
+        /* _display: Oculta el toggle de desktop */
+        display: none;
+    }
+
+    .dark-mode-toggle-mobile,
+    .hamburger-menu-icon {
+        /* _background_color: Color temporal */
+        background-color: coral; /* Temporal para wireframe */
+        /* _width: Ancho del ícono */
+        width: 35px;
+        /* _height: Altura del ícono */
+        height: 35px;
+        /* _display: Centra el contenido del ícono */
+        display: flex;
+        /* _justify_content: Centra horizontalmente */
+        justify-content: center;
+        /* _align_items: Centra verticalmente */
+        align-items: center;
+        /* _border_radius: Hace el icono circular */
+        border-radius: 50%;
+        /* _cursor: Indica que es clickeable */
+        cursor: pointer;
+        /* _font_size: Tamaño del icono */
+        font-size: 1.5rem;
+        /* _color: Color del icono */
+        color: white; /* Temporal para wireframe */
+    }
+
+    nav.main-nav {
+        /* _flex_direction: Para el menú móvil, se apila verticalmente */
+        flex-direction: column;
+        /* _height: La altura será automática para mostrar el menú desplegable */
+        height: auto;
+        /* _padding: Ajusta el padding para móvil */
+        padding: var(--spacing-unit);
+        /* _justify_content: Alinea al inicio */
+        justify-content: flex-start;
+        /* _align_items: Alinea al inicio */
+        align-items: flex-start;
+    }
+
+    .main-nav ul {
+        /* _flex_direction: Apila los items del menú verticalmente */
+        flex-direction: column;
+        /* _width: Ocupa todo el ancho disponible */
+        width: 100%;
+        /* _text_align: Alinea el texto a la izquierda */
+        text-align: left;
+    }
+
+    .main-nav ul li {
+        /* _width: Cada item ocupa todo el ancho */
+        width: 100%;
+        /* _margin_bottom: Espacio entre items */
+        margin-bottom: var(--spacing-unit) / 2;
+    }
+
+    .main-nav ul li a {
+        /* _display: Hace que el enlace ocupe todo el espacio del item */
+        display: block;
+        /* _padding: Padding para cada enlace del menú */
+        padding: var(--spacing-unit) / 2 0;
+    }
+
+    /* _dark_mode_toggle_mobile_and_hamburger_menu_icon: Oculta el dark mode toggle de desktop */
+    .dark-mode-toggle-desktop {
+        display: none;
+    }
+}
