@@ -41,61 +41,6 @@ body {
     flex-grow: 1;
 }
 
-nav.main-nav {
-    /* _height: Altura fija para la barra de menú */
-    height: var(--navbar-height-desktop);
-    /* _display: Usa flexbox para alinear los elementos */
-    display: flex;
-    /* _justify_content: Distribuye el espacio y centra el menú */
-    justify-content: center;
-    /* _align_items: Centra verticalmente el contenido */
-    align-items: center;
-    /* _padding: Espaciado interno */
-    padding: 0 var(--spacing-unit);
-    /* _box_sizing: Incluye padding en el tamaño total */
-    box-sizing: border-box;
-    /* _position: Asegura que el ícono de dark mode se posicione correctamente */
-    position: relative;
-}
-
-.main-nav ul {
-    /* _list_style: Elimina los puntos de la lista */
-    list-style: none;
-    /* _padding: Elimina el padding por defecto de la lista */
-    padding: 0;
-    /* _margin: Elimina el margen por defecto de la lista */
-    margin: 0;
-    /* _display: Usa flexbox para alinear los items del menú */
-    display: flex;
-    /* _justify_content: Centra los items del menú */
-    justify-content: center;
-    /* _gap: Espacio entre los items del menú */
-    gap: var(--spacing-unit);
-}
-
-.dark-mode-toggle-desktop {
-    /* _position: Posiciona el icono de dark mode al final de la barra */
-    position: absolute;
-    /* _right: Distancia desde el borde derecho */
-    right: var(--spacing-unit);
-    /* _cursor: Indica que es clickeable */
-    cursor: pointer;
-    /* _font_size: Tamaño del icono */
-    font-size: 1.5rem;
-    /* _width: Ancho del ícono */
-    width: 30px;
-    /* _height: Altura del ícono */
-    height: 30px;
-    /* _display: Centra el contenido del ícono */
-    display: flex;
-    /* _justify_content: Centra horizontalmente */
-    justify-content: center;
-    /* _align_items: Centra verticalmente */
-    align-items: center;
-    /* _border_radius: Hace el icono circular */
-    border-radius: 50%;
-}
-
 main {
     /* _flex_grow: Permite que el main ocupe todo el espacio restante */
     flex-grow: 1;
@@ -147,26 +92,6 @@ footer {
         display: none;
     }
 
-    .dark-mode-toggle-mobile,
-    .hamburger-menu-icon {
-        /* _width: Ancho del ícono */
-        width: 35px;
-        /* _height: Altura del ícono */
-        height: 35px;
-        /* _display: Centra el contenido del ícono */
-        display: flex;
-        /* _justify_content: Centra horizontalmente */
-        justify-content: center;
-        /* _align_items: Centra verticalmente */
-        align-items: center;
-        /* _border_radius: Hace el icono circular */
-        border-radius: 50%;
-        /* _cursor: Indica que es clickeable */
-        cursor: pointer;
-        /* _font_size: Tamaño del icono */
-        font-size: 1.5rem;
-    }
-
     nav.main-nav {
         /* Oculta la navegación por defecto en móvil y define su estructura cuando sea visible */
         display: none; /* Se mostrará con .is-open */
@@ -192,10 +117,10 @@ footer {
         align-items: flex-start;
     }
 
-    .main-nav ul {
+    .main-nav > ul { /* Cambiado de .main-nav ul a .main-nav > ul */
         /* _flex_direction: Apila los items del menú verticalmente */
         flex-direction: column;
-        /* _width: Ocupa todo el ancho disponible */
+        /* _width: Ocupa todo el ancho disponible en el menú móvil */
         width: 100%;
         /* _text_align: Alinea el texto a la izquierda */
         text-align: left;

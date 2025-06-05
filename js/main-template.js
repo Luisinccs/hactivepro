@@ -181,8 +181,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             return; // Detener la ejecución si los contenedores base no existen
         }
 
+        if(!isMobileDevice()){
+            const headerElement = document.createElement('header');
+            bodyElement.insertBefore(headerElement, siteContainer);
+            cargarComponente('/complements/header.html', headerElement);
+        } 
+
         // --- 1. Create all structural elements ---
-        const headerElement = document.createElement('header');
         const navElement = document.createElement('nav');
         navElement.classList.add('main-nav'); // Importante para que los estilos CSS apliquen
         const subscriptionSectionElement = document.createElement('section');
@@ -191,11 +196,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // --- 2. Load content into these elements in parallel ---
         const navUrl = isMobileDevice() ? '/complements/nav-mobile.html' : '/complements/nav-regular.html';
-        // const loadHeaderContentPromise = cargarComponente(headerUrl, headerElement);
         const loadNavContentPromise = cargarComponente(navUrl, navElement);
         const loadSubscriptionContentPromise = cargarComponente('/complements/subscription-section.html', subscriptionSectionElement);
         const loadFooterContentPromise = cargarComponente('/complements/footer.html', footerElement);
 
+        bodyElement.insertBefore(navElement, siteContainer);
 
         // Wait for all content to be loaded
         await Promise.all([
@@ -208,27 +213,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         // --- 3. Now that elements have content, arrange them in the DOM ---
 
         // Append subscription section into main
-        mainElement.appendChild(subscriptionSectionElement);
+        siteContainer.appendChild(subscriptionSectionElement);
 
         // Append footer to body (outside site-container)
         bodyElement.appendChild(footerElement);
 
-        // Arrange header and nav based on device
-        // if (isMobileDevice()) {
-        //     // Mobile: header -> (nav inside header) -> main
-        //     siteContainer.insertBefore(headerElement, mainElement);
-        //     headerElement.appendChild(navElement); // Nav is inside header
-        // } else {
-        //     // Regular: header -> nav -> main
-        //     siteContainer.insertBefore(navElement, mainElement); // Nav before main
-        //     siteContainer.insertBefore(headerElement, navElement); // Header before nav
-        // }
-
         // --- 4. Now that DOM is structured and content is loaded, initialize JS functionalities ---
         // inicializa las funcionalidades que dependen de ellos.
         initializeDarkModeToggle();
-        // Si tuvieras una función para el menú hamburguesa, la llamarías aquí también:
-        // initializeHamburgerMenu();
         // Initialize hamburger menu logic ONLY if on mobile
         if (isMobileDevice()) {
             initializeHamburgerMenu();

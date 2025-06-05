@@ -7,7 +7,7 @@ nav.main-nav {
     /* _display: Usa flexbox para alinear los elementos */
     display: flex;
     /* _justify_content: Distribuye el espacio y centra el menú */
-    justify-content: space-between; /* Para separar el ul de los toggles */
+    justify-content: right; /* Para separar el ul de los toggles */
     /* _align_items: Centra verticalmente el contenido */
     align-items: center;
     /* _padding: Espaciado interno */
@@ -18,7 +18,7 @@ nav.main-nav {
     position: relative;
 }
 
-.main-nav ul {
+.nav-items-regular {
     /* _list_style: Elimina los puntos de la lista */
     list-style: none;
     /* _padding: Elimina el padding por defecto de la lista */
@@ -43,9 +43,11 @@ nav.main-nav {
 }
 
 .nav-toggles {
+    flex-direction: row;
     display: flex;
     align-items: center;
-    gap: calc(var(--spacing-unit) / 2); /* Espacio entre el lang switcher y el dark mode toggle */
+    /* gap: calc(var(--spacing-unit) / 2);  */
+    /* Espacio entre el lang switcher y el dark mode toggle */
 }
 
 .dark-mode-toggle-desktop {
@@ -67,14 +69,6 @@ nav.main-nav {
     border-radius: 50%;
 }
 
-/* Oculta elementos móviles en desktop */
-.nav-mobile-top-bar,
-.header-mobile-title,
-.header-mobile-icons,
-.dark-mode-toggle-mobile,
-.hamburger-menu-icon {
-    display: none;
-}
 
 /* Región: Estilos de la Barra de Navegación (Móvil) */
 @media (max-width: 768px) {
