@@ -1,0 +1,121 @@
+/* colors.css */
+
+/* Región: Variables de Color Globales */
+:root {
+    /* Paleta de Colores - Modo Claro (Default) */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --text-color-light: #555555; /* Para texto secundario o menos prominente */
+
+    --primary-accent-color: #007bff; /* Un azul como acento principal */
+    --secondary-accent-color: #6c757d; /* Un gris para acentos secundarios */
+
+    --header-bg: #f8f9fa;
+    --header-text-color: #343a40;
+    --header-mobile-title-color: var(--primary-accent-color);
+
+    --nav-bg: #e9ecef;
+    --nav-text-color: #495057;
+    --nav-link-hover-bg: #dee2e6;
+
+    --main-content-bg: var(--bg-color); /* El fondo principal puede ser el mismo que el body */
+
+    --footer-bg: #343a40;
+    --footer-text-color: #f8f9fa;
+
+    --subscription-section-bg: #f0f0f0;
+    --subscription-section-text-color: var(--text-color);
+    --subscription-label-color: var(--text-color);
+
+    --button-bg: var(--primary-accent-color);
+    --button-text-color: #ffffff;
+    --button-hover-bg: #0056b3;
+
+    --toggle-icon-bg: #d1d1d1;
+    --toggle-icon-color: var(--text-color);
+    --mobile-icon-bg: var(--primary-accent-color);
+    --mobile-icon-color: #ffffff;
+
+    --border-color: #dee2e6;
+}
+
+/* Región: Aplicación de Colores a Elementos de Layout General */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+}
+
+nav.main-nav {
+    background-color: var(--nav-bg);
+}
+
+.dark-mode-toggle-desktop {
+    background-color: var(--toggle-icon-bg);
+    color: var(--toggle-icon-color);
+}
+
+main {
+    /* background-color: var(--main-content-bg); */
+}
+
+.subscription-section {
+    background-color: var(--subscription-section-bg);
+    color: var(--subscription-section-text-color);
+}
+
+.subscription-section label {
+    color: var(--subscription-label-color);
+}
+
+
+body.dark-mode {
+    /* Paleta de Colores - Modo Oscuro */
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --text-color-light: #bbbbbb;
+
+    --primary-accent-color: #0d6efd; /* Azul ligeramente más brillante para modo oscuro */
+    --secondary-accent-color: #adb5bd;
+
+    --header-bg: #1c1c1c;
+    --header-text-color: #f1f1f1;
+    --header-mobile-title-color: var(--primary-accent-color);
+
+    --nav-bg: #232323;
+    --nav-text-color: #cccccc;
+    --nav-link-hover-bg: #343434;
+
+    --footer-bg: #1c1c1c;
+    --footer-text-color: #e0e0e0;
+
+    --subscription-section-bg: #2a2a2a;
+    --subscription-label-color: var(--text-color-light);
+
+    --button-bg: var(--primary-accent-color);
+    --button-hover-bg: #0b5ed7;
+
+    --toggle-icon-bg: #3a3a3a;
+    --toggle-icon-color: var(--text-color);
+    --mobile-icon-bg: var(--primary-accent-color);
+
+    --border-color: #343a40;
+}
+
+/* Región: Aplicación de Colores a Elementos de Layout General (Modo Oscuro) */
+/* Las reglas específicas de modo oscuro se aplican automáticamente si el body tiene la clase .dark-mode */
+
+/* Región: Layout para Teléfonos (Pantallas Pequeñas) - Colores */
+@media (max-width: 768px) {
+    .header-mobile-title {
+        color: var(--header-mobile-title-color);
+    }
+    .dark-mode-toggle-mobile,
+    .hamburger-menu-icon {
+        background-color: var(--mobile-icon-bg);
+        color: var(--mobile-icon-color);
+    }
+}

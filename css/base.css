@@ -1,6 +1,8 @@
 /* base.css */
+/* Este archivo importa todos los CSS comunes al sitio. */
 
 @import url('colors.css');
 @import url('layout-main.css');
-/* @import url('header.css'); */
+@import url('header.css'); /* Añadido el import para header.css */
+@import url('layout-nav.css'); /* Añadido el import para layout-nav.css */
 @import url('typography.css');

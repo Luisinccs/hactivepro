@@ -1,0 +1,124 @@
+/* header.css */
+
+/* Región: Estilos del Encabezado (Desktop y Tabletas) */
+header {
+    /* _height: Altura fija para el header en desktop/tablet */
+    height: var(--header-height-desktop);
+    /* _display: Usa flexbox para centrar el contenido (logo) */
+    display: flex;
+    /* _justify_content: Centra horizontalmente el contenido */
+    justify-content: center;
+    /* _align_items: Centra verticalmente el contenido */
+    align-items: center;
+    /* _padding: Espaciado interno */
+    padding: var(--spacing-unit);
+    /* _box_sizing: Incluye padding en el tamaño total */
+    box-sizing: border-box;
+}
+
+.header-logo-desktop {
+    /* _width: Ancho de los logotipos en desktop */
+    width: 100%;
+    /* _height: Altura adaptable */
+    height: auto;
+    /* _max_width: Máximo ancho para el logo si fuera una imagen */
+    max-width: 100%;
+    /* _text_align: Asegura que el texto (si es logo de texto) esté centrado */
+    text-align: center;
+}
+
+/* Oculta los elementos móviles por defecto en desktop */
+.header-mobile-title,
+.header-mobile-icons {
+    display: none;
+}
+
+/* Región: Estilos del Encabezado para Teléfonos (Pantallas Pequeñas) */
+@media (max-width: 768px) { /* El breakpoint de 768px es común para tabletas pequeñas/teléfonos */
+    header {
+        /* _height: Altura reducida para el header en móvil */
+        height: var(--header-height-mobile);
+        /* _justify_content: Distribuye el espacio para el título y los iconos */
+        /* justify-content: space-between; */
+        /* _padding: Ajusta el padding para móvil */
+        padding: 0 var(--spacing-unit);
+        /* _position: Necesario para que el menú nav se posicione relativo a este header */
+        position: relative;
+    }
+    .header-content{
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    /* Oculta el logo completo de desktop en móvil */
+    .header-logo-desktop {
+        display: none;
+    }
+
+    /* Muestra el título HactivePro centrado */
+    .header-mobile-title {
+        display: block;
+        flex-grow: 1; /* Permite que el título ocupe el espacio central */
+        text-align: center;
+        font-size: 1.8rem; /* Ajusta el tamaño de fuente */
+    }
+
+    /* Muestra el contenedor de iconos */
+    .header-mobile-icons {
+        display: flex;
+        gap: calc(var(--spacing-unit) / 2); /* Espacio entre los iconos */
+        align-items: center; /* Alinea los iconos verticalmente */
+    }
+}
+
+/* Región: Estilos del Selector de Idioma */
+.language-switcher {
+    position: relative; /* Contexto para el dropdown */
+    display: inline-block; /* Para que se alinee con otros iconos */
+}
+
+.current-lang-flag {
+    cursor: pointer;
+    font-size: 1.5rem; /* Ajusta según el tamaño de tus iconos */
+    padding: 5px; /* Un poco de espacio alrededor de la bandera */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; /* Similar a otros iconos móviles */
+    height: 35px; /* Similar a otros iconos móviles */
+    border-radius: 50%;
+    /* background-color: var(--mobile-icon-bg); /* O un color específico para el lang switcher */
+    /* color: var(--mobile-icon-color); */
+    user-select: none; /* Evita la selección de texto al hacer clic */
+}
+
+.lang-dropdown {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    right: 0;
+    top: calc(100% + 5px); /* Un poco debajo del icono de la bandera */
+    background-color: var(--nav-bg); /* O el color de fondo que prefieras para el dropdown */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    list-style: none;
+    margin: 0;
+    padding: calc(var(--spacing-unit) / 2);
+    z-index: 1100; /* Por encima del menú de navegación si es necesario */
+    min-width: 120px; /* Ancho mínimo del dropdown */
+}
+
+.lang-dropdown.visible {
+    display: block;
+}
+
+.lang-dropdown li {
+    padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+    cursor: pointer;
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+}
+
+.lang-dropdown li:hover {
+    background-color: var(--nav-link-hover-bg); /* Reutiliza el color de hover de la navegación */
+}

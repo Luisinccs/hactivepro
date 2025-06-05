@@ -10,6 +10,7 @@
     --header-height-mobile: 60px;
     --navbar-height-mobile: auto; /* La altura del menú móvil será dinámica */
 }
+
 /* Región: Layout General (Desktop y Tabletas) */
 html, body {
     /* _margin: Asegura que no haya margen externo en el html o body */
@@ -19,7 +20,7 @@ html, body {
     /* _box_sizing: Fundamental para que los paddings y borders no sumen al ancho/alto */
     box-sizing: border-box;
 }
-/* Región: Layout General (Desktop y Tabletas) */
+
 body {
     /* _display: Utiliza flexbox para organizar el sitio como una columna principal */
     display: flex;
@@ -40,43 +41,7 @@ body {
     flex-grow: 1;
 }
 
-header {
-    /* _background_color: Color temporal para distinguir el header */
-    background-color: lightblue; /* Temporal para wireframe */
-    /* _height: Altura fija para el header en desktop/tablet */
-    height: var(--header-height-desktop);
-    /* _display: Usa flexbox para centrar el contenido (logo) */
-    display: flex;
-    /* _justify_content: Centra horizontalmente el contenido */
-    justify-content: center;
-    /* _align_items: Centra verticalmente el contenido */
-    align-items: center;
-    /* _padding: Espaciado interno */
-    padding: var(--spacing-unit);
-    /* _box_sizing: Incluye padding en el tamaño total */
-    box-sizing: border-box;
-}
-
-.header-logo-desktop {
-    /* _width: Ancho de los logotipos en desktop */
-    width: 100%;
-    /* _height: Altura adaptable */
-    height: auto;
-    /* _max_width: Máximo ancho para el logo si fuera una imagen */
-    max-width: 100%;
-    /* _text_align: Asegura que el texto (si es logo de texto) esté centrado */
-    text-align: center;
-}
-
-.header-mobile-title,
-.header-mobile-icons {
-    /* _display: Oculta estos elementos por defecto en desktop */
-    display: none;
-}
-
 nav.main-nav {
-    /* _background_color: Color temporal para distinguir la barra de menú */
-    background-color: aquamarine; /* Temporal para wireframe */
     /* _height: Altura fija para la barra de menú */
     height: var(--navbar-height-desktop);
     /* _display: Usa flexbox para alinear los elementos */
@@ -117,8 +82,6 @@ nav.main-nav {
     cursor: pointer;
     /* _font_size: Tamaño del icono */
     font-size: 1.5rem;
-    /* _background_color: Color temporal */
-    background-color: coral; /* Temporal para wireframe */
     /* _width: Ancho del ícono */
     width: 30px;
     /* _height: Altura del ícono */
@@ -134,18 +97,36 @@ nav.main-nav {
 }
 
 main {
-    /* _background_color: Color temporal para distinguir el main */
-    background-color: lightcoral; /* Temporal para wireframe */
     /* _flex_grow: Permite que el main ocupe todo el espacio restante */
     flex-grow: 1;
     /* _padding: Espaciado interno general del contenido */
-    padding: var(--spacing-unit) * 2;
+    padding: calc(var(--spacing-unit) * 2);
+    /* _align_items: Esto no tiene efecto sin display: flex/grid */
+    /* align-items: center; */
+}
+
+/* Región: Sección de Suscripción */
+.subscription-section {
+    /* _padding: Espaciado interno */
+    padding: calc(var(--spacing-unit) * 1.5);
+    /* _margin_top_bottom: Margen superior e inferior */
+    margin: var(--spacing-unit) 0;
+    /* _text_align: Centra el texto del label */
+    text-align: center;
+    /* _border_radius: Bordes redondeados */
+    border-radius: 8px;
+}
+
+.subscription-section label {
+    /* _display: Bloque para que ocupe su propia línea */
+    display: block;
+    /* _margin_bottom: Espacio debajo del label */
+    margin-bottom: var(--spacing-unit);
+    /* _font_weight: Un poco más de énfasis */
+    font-weight: 500;
 }
 
 footer {
-    /* _background_color: Color temporal para distinguir el footer */
-    background-color: lightgray; /* Temporal para wireframe */
-    /* _height: Altura fija para el footer */
     height: var(--footer-height);
     /* _display: Usa flexbox para centrar el texto */
     display: flex;
@@ -161,42 +142,6 @@ footer {
 
 /* Región: Layout para Teléfonos (Pantallas Pequeñas) */
 @media (max-width: 768px) { /* El breakpoint de 768px es común para tabletas pequeñas/teléfonos */
-    header {
-        /* _height: Altura reducida para el header en móvil */
-        height: var(--header-height-mobile);
-        /* _justify_content: Distribuye el espacio para el título y los iconos */
-        justify-content: space-between;
-        /* _padding: Ajusta el padding para móvil */
-        padding: 0 var(--spacing-unit);
-    }
-
-    .header-logo-desktop {
-        /* _display: Oculta el logo completo en móvil */
-        display: none;
-    }
-
-    .header-mobile-title {
-        /* _display: Muestra el título HactivePro centrado */
-        display: block;
-        /* _flex_grow: Permite que el título ocupe el espacio central */
-        flex-grow: 1;
-        /* _text_align: Centra el texto */
-        text-align: center;
-        /* _font_size: Ajusta el tamaño de fuente */
-        font-size: 1.8rem;
-        /* _color: Color temporal */
-        color: darkblue; /* Temporal para wireframe */
-    }
-
-    .header-mobile-icons {
-        /* _display: Muestra el contenedor de iconos */
-        display: flex;
-        /* _gap: Espacio entre los iconos */
-        gap: var(--spacing-unit) / 2;
-        /* _align_items: Alinea los iconos verticalmente */
-        align-items: center;
-    }
-
     .dark-mode-toggle-desktop {
         /* _display: Oculta el toggle de desktop */
         display: none;
@@ -204,8 +149,6 @@ footer {
 
     .dark-mode-toggle-mobile,
     .hamburger-menu-icon {
-        /* _background_color: Color temporal */
-        background-color: coral; /* Temporal para wireframe */
         /* _width: Ancho del ícono */
         width: 35px;
         /* _height: Altura del ícono */
@@ -222,14 +165,24 @@ footer {
         cursor: pointer;
         /* _font_size: Tamaño del icono */
         font-size: 1.5rem;
-        /* _color: Color del icono */
-        color: white; /* Temporal para wireframe */
     }
 
     nav.main-nav {
+        /* Oculta la navegación por defecto en móvil y define su estructura cuando sea visible */
+        display: none; /* Se mostrará con .is-open */
+        position: absolute;
+        top: var(--header-height-mobile); /* Se alinea justo debajo del header */
+        right: 0; /* Se pega al borde derecho */
+        width: clamp(200px, 50vw, 300px); /* Ancho adaptable: mínimo, preferido, máximo */
+        z-index: 1000; /* Asegura que esté por encima de otro contenido */
+        /* El background-color lo toma de colors.css (var(--nav-bg)) */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+        border-bottom-left-radius: 8px; /* Un detalle estético */
+        border-bottom-right-radius: 8px; /* Un detalle estético */
+
         /* _flex_direction: Para el menú móvil, se apila verticalmente */
         flex-direction: column;
-        /* _height: La altura será automática para mostrar el menú desplegable */
+        /* _height: La altura será automática según el contenido */
         height: auto;
         /* _padding: Ajusta el padding para móvil */
         padding: var(--spacing-unit);
@@ -252,18 +205,20 @@ footer {
         /* _width: Cada item ocupa todo el ancho */
         width: 100%;
         /* _margin_bottom: Espacio entre items */
-        margin-bottom: var(--spacing-unit) / 2;
+        margin-bottom: calc(var(--spacing-unit) / 2); /* CORREGIDO */
     }
 
     .main-nav ul li a {
         /* _display: Hace que el enlace ocupe todo el espacio del item */
         display: block;
-        /* _padding: Padding para cada enlace del menú */
-        padding: var(--spacing-unit) / 2 0;
+        /* _padding: Padding vertical para cada enlace del menú */
+        padding: calc(var(--spacing-unit) / 2) 0;
+        /* _color: Asegura que el texto del enlace sea visible (definido en colors.css via variable) */
+        /* _text_decoration: Quita el subrayado por defecto de los enlaces (definido en colors.css via variable) */
     }
 
-    /* _dark_mode_toggle_mobile_and_hamburger_menu_icon: Oculta el dark mode toggle de desktop */
-    .dark-mode-toggle-desktop {
-        display: none;
+    /* Muestra la navegación cuando tiene la clase 'is-open' */
+    nav.main-nav.is-open {
+        display: flex; /* O 'block', dependiendo de cómo quieras que se muestre. 'flex' mantiene la dirección de columna. */
     }
 }

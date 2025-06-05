@@ -13,3 +13,36 @@ Para las pantallas pequeñas (teléfonos):
 
 Te paso un par de imagenes con un wireframe preliminar para que veas el layout.
 Generame el código para esa distribución en el archivo layout-main.css. Los colores son solo para distinguir los elementos 
+
+Bien, vamos a implementar la funcionalidad de alternar el modo oscuro, coloca la lógica en el archivo main-template.js y aplica los colores en el archivo colors.css; si te fijas en el archivo layout-main.css, hay reglas de colores, las colocamos mientras haciamos las pruebas, pero ya no deben ir allí, retiralas
+
+Has los siguientes cambios:
+- La sección subscription-section y el footer, tambien se deben agregar dinamicamente con javascript 
+En los dispositivos regulares, la estructura debe ser al final:
+    body
+        site-container
+            Header-regular
+            nav-menu
+            main
+        footer
+En los dispositivos pequeños, la estructura debe ser al final:
+    body
+        site-container
+            Header-mobile
+                nav-menu (dentro del header)
+            main
+        footer
+
+Bien, vamos a hacer entonces una modificación en la estructura para que quede mejor;
+El header, lo van a tener solo los dispositivos regulares, no se va a ver en los moviles.
+Lo que antes llamabamos header para moviles, va a ser la misma barra de navegación, nav-bar. Esta se va a adaptar según el dispositivo. La estructura quedaría así:
+
+    body    
+        site-container
+            header (solo regulares)
+            nav-menu (adaptativa según el dispositivo)
+            main
+            subscription-section
+        footer
+
+Las reglas de layout de la barra de navegación van a pasar ahora a un nuevo archivo layout-nav.css porque son muchas y así se mantiene mas limpio; y el archivo header.css, va a quedar exclusivamente para reglas del encabezado en dispoditivos regulares, que es un poco complicado el diseño
