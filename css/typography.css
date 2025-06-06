@@ -20,7 +20,6 @@ body {
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
-    /* color: var(--text-color); Ya se define en colors.css */
 }
 
 /* Región: Estilos Específicos de Tipografía */

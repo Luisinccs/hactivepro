@@ -71,6 +71,13 @@ main {
     color: var(--subscription-label-color);
 }
 
+/*Lista de elementos de un menú emergente*/
+.popup-list{
+    background-color: var(--nav-bg); /* O el color de fondo que prefieras para el dropdown */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
 
 body.dark-mode {
     /* Paleta de Colores - Modo Oscuro */

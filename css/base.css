@@ -2,7 +2,7 @@
 /* Este archivo importa todos los CSS comunes al sitio. */
 
 @import url('colors.css');
-/* @import url('header.css');  */
+@import url('header.css'); 
 @import url('layout-main.css');
 @import url('layout-nav.css'); 
 @import url('typography.css');

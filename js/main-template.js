@@ -101,15 +101,13 @@ function initializeDarkModeToggle() {
 function initializeHamburgerMenu() {
     // console.log('hamburger menu initializing');
     const hamburgerIcon = document.querySelector('.hamburger-menu-icon');
-    const mainNav = document.querySelector('nav.main-nav');
+    const mainNav = document.querySelector('.nav-items-mobile');
     const NAV_OPEN_CLASS = 'is-open'; // Class to toggle on nav
 
     if (hamburgerIcon && mainNav) {
         hamburgerIcon.addEventListener('click', () => {
             mainNav.classList.toggle(NAV_OPEN_CLASS);
-            // console.log('hamburger click');
-            // Optional: Change hamburger icon to close icon
-            // hamburgerIcon.textContent = mainNav.classList.contains(NAV_OPEN_CLASS) ? '✕' : '☰';
+            hamburgerIcon.textContent = mainNav.classList.contains(NAV_OPEN_CLASS) ? '✕' : '☰';
         });
     } else {
         console.warn("Hamburger menu icon or main navigation not found. Hamburger menu functionality not initialized.");

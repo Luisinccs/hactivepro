@@ -6,6 +6,7 @@ nav.main-nav {
     height: var(--navbar-height-desktop);
     /* _display: Usa flexbox para alinear los elementos */
     display: flex;
+    flex-direction: row; /* Asegura que título e iconos estén en fila */
     /* _justify_content: Distribuye el espacio y centra el menú */
     justify-content: right; /* Para separar el ul de los toggles */
     /* _align_items: Centra verticalmente el contenido */
@@ -69,22 +70,17 @@ nav.main-nav {
     border-radius: 50%;
 }
 
-
 /* Región: Estilos de la Barra de Navegación (Móvil) */
 @media (max-width: 768px) {
+
     nav.main-nav {
         /* La barra de navegación se convierte en la barra superior móvil */
         height: var(--header-height-mobile); /* Usa la altura del header móvil */
-        display: flex; /* Muestra la barra superior */
         justify-content: space-between; /* Distribuye título e iconos */
-        align-items: center;
-        padding: 0 var(--spacing-unit);
-        position: relative; /* Contexto para el menú desplegable */
-        flex-direction: row; /* Asegura que título e iconos estén en fila */
     }
 
+    /* Este div ahora es el contenedor de la barra superior móvil */
     .nav-mobile-top-bar {
-        /* Este div ahora es el contenedor de la barra superior móvil */
         display: flex;
         flex-direction: row;
         flex-grow: 1; /* Permite que ocupe el espacio */
@@ -92,6 +88,7 @@ nav.main-nav {
         align-items: center;
     }
 
+    /*El header mobile title, va dentro de la barra de navegación en los disposirivos moviles, por eso es una excepción a la regla de colocar el título en el achivo de navegación*/
     .header-mobile-title {
         display: block; /* Muestra el título móvil */
         flex-grow: 1;
@@ -105,9 +102,6 @@ nav.main-nav {
         align-items: center;
     }
 
-    /* Oculta elementos desktop en móvil */
-    .main-nav ul, /* Oculta la lista de menú por defecto */
-    .nav-toggles, /* Oculta el contenedor de toggles de desktop */
     .dark-mode-toggle-desktop {
         display: none;
     }
@@ -127,7 +121,8 @@ nav.main-nav {
 
     /* Estilos para el menú desplegable (ul) en móvil */
     /* Nota: El ul está dentro de nav.main-nav en móvil */
-    nav.main-nav ul {
+    .nav-items-mobile {
+        /* background-color: aliceblue; */
         display: none; /* Oculto por defecto */
         position: absolute;
         top: var(--header-height-mobile); /* Se alinea justo debajo de la barra superior (nav) */
@@ -135,7 +130,7 @@ nav.main-nav {
         width: clamp(200px, 50vw, 300px); /* Ancho adaptable */
         z-index: 1000; /* Asegura que esté por encima */
         /* background-color: var(--nav-bg); /* Color de fondo del menú desplegable */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         flex-direction: column; /* Items apilados verticalmente */
@@ -145,17 +140,19 @@ nav.main-nav {
     }
 
     /* Muestra el menú desplegable cuando tiene la clase 'is-open' */
-    nav.main-nav ul.is-open {
+    .nav-items-mobile.is-open {
         display: flex;
     }
 
     /* Estilos para los items y enlaces dentro del menú desplegable móvil */
-    nav.main-nav ul li {
+    .nav-items-mobile li {
+
         width: 100%;
         margin-bottom: calc(var(--spacing-unit) / 2);
     }
 
-    nav.main-nav ul li a {
+    .nav-items-mobile li a {
+        color: brown;
         display: block;
         padding: calc(var(--spacing-unit) / 2) 0;
         /* color and text-decoration from colors.css */
@@ -189,10 +186,7 @@ nav.main-nav {
     position: absolute;
     right: 0;
     top: calc(100% + 5px); /* Un poco debajo del icono de la bandera */
-    background-color: var(--nav-bg); /* O el color de fondo que prefieras para el dropdown */
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    
     list-style: none;
     margin: 0;
     padding: calc(var(--spacing-unit) / 2);

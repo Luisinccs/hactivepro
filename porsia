@@ -1,0 +1,38 @@
+
+/* Región: Layout para Teléfonos (Pantallas Pequeñas) */
+@media (max-width: 768px) { /* El breakpoint de 768px es común para tabletas pequeñas/teléfonos */
+    .dark-mode-toggle-desktop {
+        /* _display: Oculta el toggle de desktop */
+        display: none;
+    }
+
+    .main-nav > ul { /* Cambiado de .main-nav ul a .main-nav > ul */
+        /* _flex_direction: Apila los items del menú verticalmente */
+        flex-direction: column;
+        /* _width: Ocupa todo el ancho disponible en el menú móvil */
+        width: 100%;
+        /* _text_align: Alinea el texto a la izquierda */
+        text-align: left;
+    }
+
+    .main-nav ul li {
+        /* _width: Cada item ocupa todo el ancho */
+        width: 100%;
+        /* _margin_bottom: Espacio entre items */
+        margin-bottom: calc(var(--spacing-unit) / 2); /* CORREGIDO */
+    }
+
+    .main-nav ul li a {
+        /* _display: Hace que el enlace ocupe todo el espacio del item */
+        display: block;
+        /* _padding: Padding vertical para cada enlace del menú */
+        padding: calc(var(--spacing-unit) / 2) 0;
+        /* _color: Asegura que el texto del enlace sea visible (definido en colors.css via variable) */
+        /* _text_decoration: Quita el subrayado por defecto de los enlaces (definido en colors.css via variable) */
+    }
+
+    /* Muestra la navegación cuando tiene la clase 'is-open' */
+    nav.main-nav.is-open {
+        display: flex; /* O 'block', dependiendo de cómo quieras que se muestre. 'flex' mantiene la dirección de columna. */
+    }
+}
