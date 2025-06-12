@@ -17,6 +17,7 @@ nav.main-nav {
     box-sizing: border-box;
     /* _position: Necesario si el dropdown del idioma o dark mode es absolute */
     position: relative;
+    gap: var(--spacing-unit);
 }
 
 .nav-items-regular {
@@ -68,6 +69,10 @@ nav.main-nav {
     align-items: center;
     /* _border_radius: Hace el icono circular */
     border-radius: 50%;
+}
+
+.header-regular-title {
+    flex-grow: 1;
 }
 
 /* Región: Estilos de la Barra de Navegación (Móvil) */

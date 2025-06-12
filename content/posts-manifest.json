@@ -1,0 +1,27 @@
+[
+    {
+      "file": "DeLaPiedraAlAlgoritmo.html",
+      "title": "De la piedra al algoritmo",
+      "subtitle": "Una Breve Historia de la Innovación Humana y el Amanecer de la Era de la IA",
+      "image": "deLaPiedra.jpg",
+      "publicationDate": "2025-05-28",
+      "excerpt": "Este es un breve extracto o las primeras líneas del primer artículo del blog..."
+    },
+    {
+      "file": "otro-articulo-genial.html",
+      "title": "Visteme despacio que la tecnología va de prisa",
+      "subtitle": "Explorando más a fondo",
+      "image": "vistemeDespasio.png",
+      "publicationDate": "2025-06-04",
+      "excerpt": "Un resumen conciso que invita a leer más sobre este otro tema..."
+    },
+    {
+      "file": "novedades-de-la-semana.html",
+      "title": "Los dos gimnasios",
+      "subtitle": "Entrenamiento las 24/7",
+      "image": "losDosGimnasios.jpg",
+      "publicationDate": "2025-06-11",
+      "excerpt": "Mantente al día con las últimas noticias y actualizaciones importantes."
+    }
+  ]
+  

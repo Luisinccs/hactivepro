@@ -27,17 +27,9 @@ body {
     font-family: var(--font-futuristic);
     font-size: var(--font-size-large); /* Un poco más grande para destacar */
     line-height: 1.7;
-    /* _max_width: Limita el ancho del párrafo para mejorar la legibilidad en pantallas grandes */
-    max-width: 60ch; 
-    /* _margin_left_right_auto: Centra el párrafo cuando max-width está activo */
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Región: Ajustes de Tipografía para Teléfonos */
-@media (max-width: 768px) {
-    #intro-paragraph {
-        /* _max_width_mobile: En móviles, permite que ocupe más ancho, respetando el padding del contenedor 'main' */
-        max-width: 100%; /* O 'none' si se prefiere, pero 100% es más explícito aquí */
-    }
+.header-regular-title span{
+    font-family: var(--font-primary);
+    font-size: 2.5em;
 }

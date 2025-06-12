@@ -1,0 +1,102 @@
+/* c:/Users/dandr/Desarrollo/hactivepro/css/layout-index.css */
+
+/* Estilos para el párrafo de introducción y la sección de últimos posts */
+/* En pantallas grandes, aplicamos márgenes laterales para centrar el contenido */
+#intro-paragraph,
+.latest-posts-section {
+    margin-left: 15%; /* Margen izquierdo del 15% */
+    margin-right: 15%; /* Margen derecho del 15% */
+    /* Ya no se usa max-width: 60ch; aquí, el ancho será 100% - 15% - 15% = 70% del contenedor padre */
+}
+
+/* Contenedor para toda la sección de "últimos posts" */
+.latest-posts-section {
+    /* Margen para separar del intro-paragraph u otro contenido */
+    margin-top: 2rem; /* Valor de ejemplo */
+    margin-bottom: 2rem; /* Valor de ejemplo */
+    /* max-width, margin-left y margin-right se heredan de la regla anterior o se aplican aquí */
+
+    /* Maquetación para la lista de posts */
+    display: grid;
+    grid-template-columns: 1fr; /* Cada post ocupa el ancho completo, apilados verticalmente */
+    gap: 2rem; /* Espacio entre los ítems de post */
+}
+
+/* Ítem individual de post */
+.latest-post {
+    position: relative; /* Necesario para el posicionamiento absoluto del enlace de cobertura */
+    display: flex; /* Coloca imagen y detalles lado a lado */
+    flex-direction: row; /* Por defecto, pero explícito */
+    align-items: center; /* Alinea los ítems verticalmente al centro */
+    gap: 1.5rem; /* Espacio entre el contenedor de la imagen y el de los detalles */
+}
+
+/* Enlace de cobertura para hacer toda la tarjeta clickeable */
+.post-cover-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Detrás de otros elementos interactivos dentro del post */
+    /* Opcional: para depuración, puedes darle un fondo temporal:
+    background-color: rgba(255, 0, 0, 0.1); */
+    text-decoration: none; /* Evita subrayados si tuviera texto (no lo tendrá) */
+}
+
+/* Contenedor para la imagen del post */
+.post-image-container {
+    flex-basis: 150px; /* Ancho sugerido para el área de la imagen, ajústalo según necesites */
+    flex-shrink: 0; /* Evita que el contenedor de la imagen se encoja */
+    /* Si quieres una relación de aspecto fija para el contenedor de la imagen,
+       define height relativo a width o usa la propiedad aspect-ratio.
+       Ej: width: 150px; height: 100px; o aspect-ratio: 3/2; */
+}
+
+.post-image {
+    display: block; /* Elimina espacio extra debajo de imágenes inline */
+    width: 100%;   /* La imagen ocupa el ancho completo de su contenedor */
+    height: auto;  /* Mantiene la relación de aspecto */
+    /* Si usas una altura fija en el contenedor y quieres que la imagen cubra:
+       height: 100%;
+       object-fit: cover;
+    */
+}
+
+/* Contenedor para el contenido de texto del post (título, subtítulo, extracto, fecha) */
+.post-details {
+    flex-grow: 1; /* Permite que la sección de detalles ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre elementos de texto como título, subtítulo, etc. */
+}
+
+/* Reset básico de maquetación para elementos de encabezado y párrafo dentro de post-details */
+/* La tipografía específica (font-size, font-family, etc.) debe ir en typography.css */
+/* Los colores específicos deben ir en colors.css */
+.post-details .post-title,
+.post-details .post-subtitle,
+.post-details .post-excerpt,
+.post-details .post-publication-date {
+    margin: 0; /* Resetea márgenes por defecto del navegador */
+}
+
+.post-title a {
+    position: relative; /* Para que z-index funcione */
+    z-index: 1; /* Asegura que el enlace del título esté sobre el enlace de cobertura */
+    /* Quitar el subrayado es una decisión de presentación/layout. */
+    /* Si el color del subrayado fuera diferente al del texto, sería un tema de colors.css. */
+    text-decoration: none;
+}
+
+/* Consideraciones responsivas (ejemplo para pantallas más pequeñas si el layout necesita cambiar) */
+@media (max-width: 768px) {
+    #intro-paragraph,
+    .latest-posts-section {
+        /* En móviles, eliminamos los márgenes porcentuales para usar más espacio.
+           El padding del contenedor 'main' proporcionará el espaciado lateral. */
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%; /* Asegura que no exceda el contenedor padre */
+    }
+}

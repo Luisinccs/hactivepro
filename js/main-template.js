@@ -114,59 +114,6 @@ function initializeHamburgerMenu() {
     }
 }
 
-/**
- * @brief Initializes the language switcher functionality.
- */
-function initializeLanguageSwitcher() {
-    const LANG_KEY = 'selectedLanguage';
-    const DEFAULT_LANG = 'es';
-    const DEFAULT_FLAG = '🇪🇸';
-
-    const switchers = document.querySelectorAll('.language-switcher');
-
-    switchers.forEach(switcher => {
-        const currentLangFlagElement = switcher.querySelector('.current-lang-flag');
-        const langDropdownElement = switcher.querySelector('.lang-dropdown');
-
-        if (!currentLangFlagElement || !langDropdownElement) {
-            console.warn("Language switcher elements not found in one of the switchers.");
-            return;
-        }
-
-        // Toggle dropdown visibility
-        currentLangFlagElement.addEventListener('click', (event) => {
-            event.stopPropagation(); // Evita que el click se propague al document
-            const isVisible = langDropdownElement.classList.toggle('visible');
-            currentLangFlagElement.setAttribute('aria-expanded', isVisible.toString());
-        });
-
-        // Handle language selection
-        langDropdownElement.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LI') {
-                const selectedLang = event.target.dataset.lang;
-                const selectedFlag = event.target.dataset.flag;
-
-                currentLangFlagElement.textContent = selectedFlag;
-                localStorage.setItem(LANG_KEY, selectedLang);
-                langDropdownElement.classList.remove('visible');
-                currentLangFlagElement.setAttribute('aria-expanded', 'false');
-                // Aquí llamarías a una función para cambiar el contenido del sitio:
-                // changeSiteLanguage(selectedLang);
-                console.log(`Idioma seleccionado: ${selectedLang}`);
-            }
-        });
-    });
-
-    // Set initial language from localStorage or default
-    const savedLang = localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
-    // Find the corresponding flag for the saved language to set it initially
-    // This part assumes all switchers should show the same initial language.
-    const initialLangOption = document.querySelector(`.lang-dropdown li[data-lang="${savedLang}"]`);
-    const initialFlag = initialLangOption ? initialLangOption.dataset.flag : DEFAULT_FLAG;
-
-    document.querySelectorAll('.current-lang-flag').forEach(el => el.textContent = initialFlag);
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // --- Get base containers ---
@@ -179,11 +126,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return; // Detener la ejecución si los contenedores base no existen
         }
 
-        if(!isMobileDevice()){
-            const headerElement = document.createElement('header');
-            bodyElement.insertBefore(headerElement, siteContainer);
-            cargarComponente('/complements/header.html', headerElement);
-        } 
+        // if(!isMobileDevice()){
+        //     const headerElement = document.createElement('header');
+        //     bodyElement.insertBefore(headerElement, siteContainer);
+        //     cargarComponente('/complements/header.html', headerElement);
+        // } 
 
         // --- 1. Create all structural elements ---
         const navElement = document.createElement('nav');
@@ -223,7 +170,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (isMobileDevice()) {
             initializeHamburgerMenu();
         }
-        initializeLanguageSwitcher(); // Inicializar el selector de idioma
+        
     } catch (error) {
         console.error("Error durante la carga inicial de componentes o su inicialización:", error);
         // Aquí podrías mostrar un mensaje más amigable al usuario en la página si algo falla críticamente.
